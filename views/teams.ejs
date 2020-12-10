@@ -1,0 +1,37 @@
+<%- include("_header") -%>
+
+<h1>List of teams (<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>TeamID</th>
+        <th>Name</th>
+        <th>Img</th>
+        <th>Tot_Exp</th>
+        <th>Types</th>
+        <th class="d-print-none">
+          <a class="btn btn-sm btn-success" href="/create">Create team</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const team of model) { %>
+        <tr>
+          <td><%= team.Team_ID %></td>
+          <td><%= team.Name %></td>
+          <td><%= team.Img %></td>
+          <td><%= team.Tot_Exp %></td>
+          <td><%= team.Types %></td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/edit/<%= team.Team_ID %>">Edit</a>
+            <!-- <a class="btn btn-sm btn-danger" href="/delete/<%= team.Team_ID %>">Delete</a> -->
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("_footer") -%>
